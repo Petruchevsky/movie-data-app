@@ -89,7 +89,7 @@ function Header() {
         <h1 
           className="title animate__animated animate__rubberBand"
           onClick={ () => window.location.reload()}>
-          DATA MOVIE APP
+          DATA MOVIE APK
         </h1>
 
         <p className="welcomeText">
