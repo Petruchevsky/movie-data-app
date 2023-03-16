@@ -16,6 +16,8 @@ function Header() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showCarousel, setShowCarousel] = useState(true);
   const [showScrollTopBtn, setShowScrollTopBtn] = useState(false);
+  const [error, setError] = useState(null);
+  const [searchCount, setSearchCount] = useState(0);
 
   const searchMovie = async (movieTitle) => {
     try {
@@ -27,11 +29,20 @@ function Header() {
       if (searchResults) {
         setMovieData(searchResults);
         setShowCarousel(false);
+        setError(null);
+        setSearchCount(count => count + 1);
+      } else {
+        setError('No se encontraron resultados para la búsqueda');
+        setMovieData(null);
+        setSelectedMovie(null);
+        setSearchCount(count => count + 1);
       }
 
-      console.log(searchResults);
     } catch (error) {
       console.error(error);
+      setError("Hubo un error al buscar la película. Por favor, intenta de nuevo.");
+      setMovieData(null);
+      setSelectedMovie(null);
     }
   };
 
@@ -87,7 +98,7 @@ function Header() {
     <header>
       <nav className="nav">
         <h1 
-          className="title animate__animated animate__rubberBand"
+          className="title animate__animated animate__pulse"
           onClick={ () => window.location.reload()}>
           DATA MOVIE APK
         </h1>
@@ -108,7 +119,7 @@ function Header() {
         </p>
       </nav>
 
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form animate__animated animate__fadeIn" onSubmit={handleSubmit}>
         <input
           className="InputSearch"
           type="text"
@@ -122,11 +133,30 @@ function Header() {
         </button>
       </form>
 
-      {showCarousel && <CarouselRFC className="carousel" />}
+      {showCarousel && <CarouselRFC className="carousel animate__animated animate__fadeIn" />}
+
+      {error && (
+        <div 
+          className="errorDiv animate__animated animate__backInLeft" 
+          key={searchCount}>
+
+          <div className="errorImgDiv">
+            <img 
+              src="img/error-404.jpg" 
+              alt="Error 404"
+              className="errorImg" />
+          </div>
+          <p className="errorP">
+            Lo sentimos, pero como actualmente nuestra App no cuenta con la tecnología NPL (Natural Language Proccessing), debes escribir el nombre de tu película sin faltas ortográficas, y sino la encuentras con su nombre de la versión Latam, intenta con su nombre original en Inglés.
+            <br />
+            ¡En una próxima actualización mejoraremos esto!
+          </p>
+        </div>
+      )}      
 
       {movieData &&
         (Array.isArray(movieData) ? (
-          <div className="movieListDiv">
+          <div key={searchCount} className="movieListDiv animate__animated animate__backInUp">
             <ul className="movieList">
               {movieData.map((movie) => (
                 <li className="movieListItem" key={movie.imdbID}>
