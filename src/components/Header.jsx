@@ -100,14 +100,14 @@ function Header() {
         <h1 
           className="title animate__animated animate__pulse"
           onClick={ () => window.location.reload()}>
-          DATA MOVIE APK
+          DATA MOVIE APP
         </h1>
 
         <p className="welcomeText">
           <Typewriter
             options={{
               strings: [
-                "Bienvenido(a) a DATA MOVIE APK...\n Aquí podrás encontrar información sobre todas tus películas favoritas, y en donde se encuentran disponibles para su reproducción... Ahora, que comience la función... Y no te olvides del Pop-Corn!",
+                "Bienvenido(a) a DATA MOVIE APP...\n Aquí podrás encontrar información sobre todas tus películas favoritas, y en donde se encuentran disponibles para su reproducción... Ahora, que comience la función... Y no te olvides del Pop-Corn!",
               ],
               autoStart: true,
               loop: false,
@@ -128,7 +128,7 @@ function Header() {
           placeholder="¿Qué película deseas buscar?"
           onChange={handleChange}
         />
-        <button className="btn btn-success">
+        <button className="btn btn-transparent">
           <span class="material-symbols-outlined"> search </span>
         </button>
       </form>
