@@ -96,7 +96,7 @@ function Header() {
           <Typewriter
             options={{
               strings: [
-                "Bienvenido(a) a DATA MOVIE APP...\n Aquí podrás encontrar información sobre todas tus películas favoritas, y en donde se encuentran disponibles para su reproducción... Ahora, que comience la función... Y no te olvides del Pop-Corn!",
+                "Bienvenido(a) a DATA MOVIE APK...\n Aquí podrás encontrar información sobre todas tus películas favoritas, y en donde se encuentran disponibles para su reproducción... Ahora, que comience la función... Y no te olvides del Pop-Corn!",
               ],
               autoStart: true,
               loop: false,
