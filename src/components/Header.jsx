@@ -5,6 +5,7 @@ import "./header.css";
 import "animate.css";
 import CarouselRFC from "./CarouselRFC";
 
+//-------------------------------CODIGO HEADER------------------------------------------
 function Header() {
   const apiKey = "9a761624";
   const API_KEY_Yandex =
